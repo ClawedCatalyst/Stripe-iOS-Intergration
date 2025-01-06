@@ -19,13 +19,13 @@ class PaymentManager: NSObject, ObservableObject {
     func preparePaymentSheet() {
         isLoading = true
         var configuration = PaymentSheet.Configuration()
-        configuration.merchantDisplayName = "Benefi"
-        configuration.applePay = .init(merchantId: "merchant.benefi", merchantCountryCode: "US")
+        configuration.merchantDisplayName = "{merchant-name}" // your merchant name
+        configuration.applePay = .init(merchantId: "{merchant-id}", merchantCountryCode: "{country-code}")
         configuration.allowsDelayedPaymentMethods = false
         
-        self.paymentIntentClientSecret = "pi_3QSJnbL8yY0HPNsk0GHN1BAu_secret_O4rFrI0Yd3qK4LUri73jWoJBJ"
+        self.paymentIntentClientSecret = "" // get this from the backend
         self.paymentSheet = PaymentSheet(
-            paymentIntentClientSecret: "pi_3QSJnbL8yY0HPNsk0GHN1BAu_secret_O4rFrI0Yd3qK4LUri73jWoJBJ",
+            paymentIntentClientSecret: "",
             configuration: configuration
         )
         
